@@ -11,10 +11,23 @@ mysql_select_db('repas', $base) ;
 </head>
 <body>
 <?php
-$sqlpays = "SELECT pays FROM Pays" ;
-$req = mysql_query($sqlpays) or die('Erreur SQL !<br />'.$sqlpays.'<br />'.mysql_error()) ;
-
-
+//Requete pour choisir un Pays
+$sql = "SELECT pays FROM Pays" ;
+$req = mysql_query($sql) ;
+while($result = mysql_fetch_assoc($req))
+{
+    echo '<option value='.$result['pays'].'>'.$result['pays'].'</option>';
+}
+?>
+<?php
+$sql = "SELECT type FROM Type" ;
+$req = mysql_query($sql);
+echo '<select>';
+while($result = mysql_fetch_assoc($req))
+{
+    echo '<option value='.$result['type'].'>'.$result['type'].'</option>';
+}
+mysql_close();
 ?>
 </body>
 </html>
