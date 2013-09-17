@@ -5,12 +5,14 @@ mysql_select_db('repas', $base) ;
 ?>
 <html>
 <head>
+    <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+    <meta http-equiv="content-type" content="text/html; UTF-8" />
     <title>Inscription d'un repas</title>
 </head>
 <body>
 <?php
-$sql = "SELECT 'pays' FROM 'Pays' WHERE 1" ;
-$req = mysql_query($sql) or die('Erreur SQL !<br />'.$sql.'<br />'.mysql_error()) ;
+$sqlpays = "SELECT pays FROM Pays" ;
+$req = mysql_query($sqlpays) or die('Erreur SQL !<br />'.$sqlpays.'<br />'.mysql_error()) ;
 
 
 ?>
